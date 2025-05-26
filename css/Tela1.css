@@ -9,6 +9,39 @@ body {
 .navbar {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
+.somos-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+.somos-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+}
+@media (max-width: 768px) {
+    .somos-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .somos-text h1 {
+        font-size: 3rem !important;
+    }
+
+    .somos-text p {
+        font-size: 1rem;
+    }
+}
+a[href*="wa.me"] {
+    flex-shrink: 0;
+}
+
+
 
 .navbar.sticky {
     position: fixed;
@@ -130,7 +163,7 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: calc(100%);
+    width: calc(86%);
     height: calc(100%);
     background-color: rgba(232, 211, 183, 0.6);
     z-index: -1;
@@ -306,7 +339,7 @@ button:hover {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: calc(100%);
+    width: calc(86%);
     height: calc(100%);
     background-color: #e6c8a17e;
     z-index: -1;
