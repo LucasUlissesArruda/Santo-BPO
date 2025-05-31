@@ -57,8 +57,10 @@ a[href*="wa.me"] {
     margin-right: 15px;
 }
 
-.nav-link.active {
+
+.nav-link:hover {
     color: #e6c8a1 !important;
+    text-decoration: none;
 }
 
 .btn-client {
