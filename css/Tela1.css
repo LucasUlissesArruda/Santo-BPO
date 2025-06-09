@@ -103,6 +103,22 @@ a[href*="wa.me"] {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+@media (max-width: 770px) { /* Altere conforme necessário */
+    .content-section {
+        height: auto; /* Permitir que a altura se ajuste ao conteúdo */
+        padding: 20px; /* Adicionar espaço em volta do conteúdo */
+    }
+    .content-image {
+        width: 100%; /* Aumente a largura para 100% */
+        height: auto; /* Mantenha a altura automática */
+    }
+    .content-image img {
+        width: 100%; /* A imagem ocupará 100% da largura */
+        height: auto; /* Mantenha a proporção */
+        border-radius: 10px; /* Opção: mantenha os cantos arredondados */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra permanece */
+    }
+}
 
 .somos-section {
     display: flex;
