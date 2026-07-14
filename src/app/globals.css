@@ -124,25 +124,45 @@ section {
   color: var(--secondary) !important;
 }
 
-/* Hero Section (CSS Parallax) */
+/* Hero Section */
 .hero {
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('/img/fotoannie.jpg') no-repeat center center;
-  background-size: cover;
+  overflow: hidden;
+  /* Desktop: foto ambiente com parallax */
+  background: url('/img/Fotologo.png') no-repeat center top / cover;
   background-attachment: fixed;
 }
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.95) 100%);
-  z-index: 1;
+
+/* Mobile: mesma foto, sem parallax (scroll funciona no iOS/Android) */
+@media (max-width: 991px) {
+  .hero {
+    background: url('/img/EquipeFotoMobile.png') no-repeat center top / cover;
+    background-attachment: scroll;
+  }
 }
-/* Hero Content */
+
+/* Overlay gradiente */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.15) 60%,
+    rgba(232,213,183,0.95) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -197,22 +217,22 @@ section {
   color: var(--white);
   border-color: var(--white);
 }
-/* Hero overlay for readability */
+/* Hero overlay (sobre a imagem) */
 .hero::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 60%, rgba(232, 213, 183, 0.85) 100%);
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 60%, rgba(232,213,183,0.9) 100%);
   z-index: 1;
+  pointer-events: none;
 }
-/* Fix: background-attachment: fixed não funciona em mobile */
 @media (max-width: 991px) {
-  .hero {
-    background-attachment: scroll;
+  .hero::before {
+    display: none; /* sem overlay no mobile, mostra imagem limpa */
   }
 }
 
-/* Arrow Down Animada - Substitui o antigo bloco Hero Content */
+/* Hero Content */
 .scroll-down-arrow {
   position: absolute;
   bottom: 50px;

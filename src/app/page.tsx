@@ -12,6 +12,7 @@ export default function Home() {
       <section id="inicio" className="hero">
       </section>
 
+
       {/* --- SOBRE A SANTO --- */}
       <About />
 
