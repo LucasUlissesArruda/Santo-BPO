@@ -205,6 +205,12 @@ section {
   background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 60%, rgba(232, 213, 183, 0.85) 100%);
   z-index: 1;
 }
+/* Fix: background-attachment: fixed não funciona em mobile */
+@media (max-width: 991px) {
+  .hero {
+    background-attachment: scroll;
+  }
+}
 
 /* Arrow Down Animada - Substitui o antigo bloco Hero Content */
 .scroll-down-arrow {
