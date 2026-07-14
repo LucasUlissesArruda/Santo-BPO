@@ -98,7 +98,7 @@ section {
   background-color: rgba(0, 0, 0, 0.15) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 20px 0;
+  padding: 8px 0;
   transition: all 0.4s ease;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
@@ -669,63 +669,206 @@ section {
   font-size: 0.9rem;
 }
 
-/* Responsiveness */
-@media (max-width: 991px) {
+/* ===== RESPONSIVIDADE COMPLETA ===== */
+
+/* Tablets grandes e laptops pequenos */
+@media (max-width: 1199px) {
+  .team-photo-box {
+    flex: 0 0 380px;
+  }
   .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .hero-title {
-    font-size: 2.8rem;
-  }
-  .hero-subtitle {
-    font-size: 1.05rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 }
-@media (max-width: 576px) {
+
+/* Tablets */
+@media (max-width: 991px) {
+  section {
+    padding: 70px 20px;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .team-container {
+    gap: 60px;
+  }
+  .team-row {
+    gap: 40px;
+  }
+  .team-photo-box {
+    flex: 0 0 320px;
+  }
+  .team-signature {
+    font-size: 3.8rem;
+  }
+  .somos-section {
+    gap: 50px;
+  }
+  .footer-top {
+    gap: 30px;
+  }
+}
+
+/* Mobile grande */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 16px;
+  }
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+
+  /* Navbar mobile */
+  .nav-top,
+  .nav-scrolled {
+    padding: 6px 0 !important;
+  }
+
+  /* Hero */
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
   .hero-subtitle {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   .hero-cta-group {
     flex-direction: column;
     align-items: center;
+    gap: 12px;
   }
-}
-@media (max-width: 768px) {
-  .btn-outline-premium {
-    margin-left: 0;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-  }
-  .team-row, .team-row.reverse {
+
+  /* Sobre */
+  .somos-section {
     flex-direction: column;
+    gap: 35px;
+  }
+  .somos-text {
+    text-align: center;
+    flex: 1 1 100%;
+  }
+  .somos-text h2.section-title {
+    text-align: center !important;
+  }
+  .somos-image {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  /* Serviços */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .service-card {
+    padding: 28px 14px;
+    min-height: 180px;
+  }
+  .service-icon {
+    font-size: 2.8rem;
+  }
+  .service-card h3 {
+    font-size: 1rem;
+  }
+
+  /* Equipe */
+  .team-container {
     gap: 50px;
+  }
+  .team-row,
+  .team-row.reverse {
+    flex-direction: column;
+    gap: 30px;
     text-align: center;
   }
   .team-photo-box {
     flex: 0 0 auto;
-    width: 90%;
+    width: 85%;
+    margin: 0 auto;
+  }
+  .team-signature {
+    font-size: 3.2rem;
+    margin-bottom: 12px;
   }
   .team-bio {
+    font-size: 1rem;
     text-align: justify;
   }
   .btn-whatsapp {
     margin: 0 auto;
   }
-  .somos-section {
+
+  /* Testimonials */
+  .testimonial-card {
+    padding: 24px 24px 36px;
+    min-height: auto;
+  }
+  .testimonial-text {
+    font-size: 1.05rem;
+  }
+
+  /* Footer */
+  .premium-footer {
+    padding: 60px 16px 30px;
+  }
+  .footer-top {
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
   }
-  .somos-text {
-    text-align: center;
+  .footer-col {
+    flex: 1 1 100%;
   }
-  .somos-text h2.section-title {
-    text-align: center !important;
+  .footer-logo {
+    font-size: 3.5rem;
+  }
+
+  /* Botões */
+  .btn-outline-premium {
+    margin-left: 0;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  section {
+    padding: 50px 14px;
+  }
+  .section-title {
+    font-size: 1.6rem;
   }
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .service-card {
+    min-height: auto;
+    padding: 24px 16px;
+  }
+  .team-photo-box {
+    width: 95%;
+  }
+  .team-signature {
+    font-size: 2.8rem;
+  }
+  .testimonial-card {
+    padding: 20px 16px 28px;
+  }
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+  .testimonial-author {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .testimonial-author-info {
+    text-align: center;
   }
 }
