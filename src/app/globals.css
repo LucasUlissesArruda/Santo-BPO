@@ -135,7 +135,7 @@ section {
   justify-content: center;
   overflow: hidden;
   /* Desktop: foto ambiente com parallax */
-  background: url('/img/Fotologo.png') no-repeat center top / cover;
+  background: url('/img/FotoLogo.png') no-repeat center top / cover;
   background-attachment: fixed;
 }
 
