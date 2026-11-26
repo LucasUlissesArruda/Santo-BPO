@@ -1,9 +1,40 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+import { Playfair_Display, Montserrat, Great_Vibes } from 'next/font/google';
 import './globals.css';
 import AppNavbar from '@/components/Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ScrollEffects from '@/components/ScrollEffects';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import { EMAIL, INSTAGRAM_URL, PARTNERS, SITE_URL } from '@/data/site';
 
-const siteUrl = 'https://www.santobpo.com.br';
+const siteUrl = SITE_URL;
+
+const heading = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-heading',
+  display: 'swap',
+});
+
+const body = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const script = Great_Vibes({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-script',
+  display: 'swap',
+});
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#1e1915',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,8 +83,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/img/fotoequipe.jpg',
-        width: 1200,
-        height: 630,
+        width: 1066,
+        height: 1600,
         alt: 'Equipe Santo BPO - Annie e Andréia',
       },
     ],
@@ -77,11 +108,12 @@ const jsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/img/santo.ico`,
   image: `${siteUrl}/img/fotoequipe.jpg`,
-  email: 'contato@santobpo.com.br',
+  email: EMAIL,
+  telephone: [`+55${PARTNERS.annie.phone}`, `+55${PARTNERS.andreia.phone}`],
   priceRange: '$$',
   areaServed: 'BR',
   availableLanguage: 'Portuguese',
-  sameAs: ['https://www.instagram.com/santobpo'],
+  sameAs: [INSTAGRAM_URL],
   serviceType: [
     'BPO Financeiro',
     'Gestão de Contas a Pagar',
@@ -107,9 +139,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className={`${heading.variable} ${body.variable} ${script.variable}`}>
+        <a href="#conteudo" className="skip-link">Pular para o conteúdo</a>
+        <ScrollEffects />
         <AppNavbar />
         {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

@@ -1,32 +1,14 @@
 import { MetadataRoute } from 'next';
+import { SITE_URL } from '@/data/site';
 
+// Site de página única: as âncoras (#secao) não são URLs separadas para buscadores.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.santobpo.com.br';
-
   return [
     {
-      url: baseUrl,
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
-    },
-    {
-      url: `${baseUrl}/#quem-somos`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#servicos`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#contato`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
     },
   ];
 }
