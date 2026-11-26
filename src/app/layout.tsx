@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Playfair_Display, Montserrat, Great_Vibes } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import AppNavbar from '@/components/Navbar';
 import ScrollEffects from '@/components/ScrollEffects';
@@ -8,23 +8,25 @@ import { EMAIL, INSTAGRAM_URL, PARTNERS, SITE_URL } from '@/data/site';
 
 const siteUrl = SITE_URL;
 
-const heading = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  style: ['normal', 'italic'],
+// Fontes hospedadas no próprio projeto (sem depender do Google Fonts durante o build)
+const heading = localFont({
+  src: [
+    { path: '../fonts/PlayfairDisplay-normal.woff2', weight: '400 900', style: 'normal' },
+    { path: '../fonts/PlayfairDisplay-italic.woff2', weight: '400 900', style: 'italic' },
+  ],
   variable: '--font-heading',
   display: 'swap',
 });
 
-const body = Montserrat({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+const body = localFont({
+  src: '../fonts/Montserrat-normal.woff2',
+  weight: '100 900',
   variable: '--font-body',
   display: 'swap',
 });
 
-const script = Great_Vibes({
-  subsets: ['latin'],
+const script = localFont({
+  src: '../fonts/GreatVibes-normal.woff2',
   weight: '400',
   variable: '--font-script',
   display: 'swap',
